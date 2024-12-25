@@ -63,7 +63,7 @@ const Portfolio = () => {
         "A full-featured e-commerce platform with cart and user authentication.",
       tech: ["React", "JavaScript", "HTML5", "CSS3", "REST APIs"],
       githubLink: "https://github.com/Charanreddy2408/ecommerce",
-      videoUrl: "project1.mp4", // Correct path for video
+      videoId: "c523lTkdrz8",// Correct path for video
     },
     {
       title: "Swiggy Clone",
@@ -71,7 +71,7 @@ const Portfolio = () => {
         "A Swiggy clone with restaurant filtering and sorting functionalities.",
       tech: ["React", "JavaScript", "HTML5", "CSS3", "REST APIs"],
       githubLink: "https://github.com/Charanreddy2408/swiggy",
-      videoUrl: "/project2.mp4", // Correct path for video
+       videoId: "G8d5mDwFHsQ"// Correct path for video
     },
     {
       title: "Retrofit Gym Website",
@@ -287,7 +287,7 @@ const Portfolio = () => {
                       key={index}
                       className="inline-block opacity-0"
                       style={{
-                        animation: `letterReveal 0.7s ${
+                        animation: `letterReveal 0.6s ${
                           index * 0.05
                         }s forwards`,
                       }}
@@ -419,114 +419,90 @@ const Portfolio = () => {
         </section>
 
         {/* Projects Section */}
-        <section className="py-20" id="projects" data-animate>
-          <div
-            bg-gradient-to-b
-            from-gray-900
-            via-purple-900
-            to-indigo-900
-            text-white
-          ></div>
-          <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
-          <div className="max-w-6xl mx-auto px-4 relative">
-            <div className="overflow-hidden rounded-xl">
-              <div
-                className="flex transition-all duration-500 ease-in-out"
-                style={{
-                  transform: `translateX(-${currentProjectIndex * 100}%)`,
-                }}
-              >
-                {projects.map((project, idx) => (
-                  <div key={idx} className="w-full flex-shrink-0 px-4">
-                    <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-xl">
-                      <div className="relative aspect-video mb-6 overflow-hidden rounded-lg">
-                        <video
-                          ref={(el) => (project.videoRef = el)} // Assigning ref to the video element
-                          src={project.videoUrl}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                          muted
-                          loop
-                        />
-                        <button
-                          onClick={() => {
-                            if (videoPlaying === idx) {
-                              project.videoRef.pause();
-                              setVideoPlaying(null); // Set video state to null (paused)
-                            } else {
-                              project.videoRef.play();
-                              setVideoPlaying(idx); // Set video state to playing
-                            }
-                          }}
-                          className="absolute inset-0 flex items-center justify-center bg-black/50 hover:bg-black/30 transition-colors"
-                        >
-                          <div className="w-12 h-12">
-                            {videoPlaying === idx ? <Pause /> : <Play />}{" "}
-                            {/* Toggle between Play and Pause icons */}
-                          </div>
-                        </button>
-                      </div>
-                      <h3 className="text-2xl font-bold mb-4">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-300 mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tech.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 bg-blue-500/30 rounded-full text-sm"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="flex space-x-4">
-                        {project.githubLink && (
-                          <a
-                            href={project.githubLink}
-                            className="text-blue-300 hover:text-blue-100 transition-colors flex items-center gap-2"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Github className="w-4 h-4" />
-                            GitHub
-                          </a>
-                        )}
-                        {project.link && (
-                          <a
-                            href={project.link}
-                            className="text-blue-300 hover:text-blue-100 transition-colors"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Live Demo
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+<section className="py-20" id="projects" data-animate>
+  <div
+    className="bg-gradient-to-b from-gray-900 via-purple-900 to-indigo-900 text-white"
+  ></div>
+  <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
+  <div className="max-w-6xl mx-auto px-4 relative">
+    <div className="overflow-hidden rounded-xl">
+      <div
+        className="flex transition-all duration-500 ease-in-out"
+        style={{
+          transform: `translateX(-${currentProjectIndex * 100}%)`,
+        }}
+      >
+        {projects.map((project, idx) => (
+          <div key={idx} className="w-full flex-shrink-0 px-4">
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-xl">
+              <div className="relative aspect-video mb-6 overflow-hidden rounded-lg">
+                <iframe
+                  src={`https://www.youtube.com/embed/${project.videoId}`}
+                  className="w-full h-full"
+                  title={project.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+              <p className="text-gray-300 mb-4">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 bg-blue-500/30 rounded-full text-sm"
+                  >
+                    {tech}
+                  </span>
                 ))}
               </div>
+              <div className="flex space-x-4">
+                {project.githubLink && (
+                  <a
+                    href={project.githubLink}
+                    className="text-blue-300 hover:text-blue-100 transition-colors flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                )}
+                {project.link && (
+                  <a
+                    href={project.link}
+                    className="text-blue-300 hover:text-blue-100 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
             </div>
-
-            <button
-              onClick={navigate.project.prev}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
-              aria-label="Previous project"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={navigate.project.next}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
-              aria-label="Next project"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+
+    <button
+      onClick={navigate.project.prev}
+      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
+      aria-label="Previous project"
+    >
+      <ChevronLeft className="w-6 h-6" />
+    </button>
+    <button
+      onClick={navigate.project.next}
+      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
+      aria-label="Next project"
+    >
+      <ChevronRight className="w-6 h-6" />
+    </button>
+  </div>
+</section>
+
 
         {/* Hobbies Section */}
         <section
