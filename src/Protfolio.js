@@ -63,7 +63,7 @@ const Portfolio = () => {
         "A full-featured e-commerce platform with cart and user authentication.",
       tech: ["React", "JavaScript", "HTML5", "CSS3", "REST APIs"],
       githubLink: "https://github.com/Charanreddy2408/ecommerce",
-      videoId: "c523lTkdrz8",// Correct path for video
+      videoId: "c523lTkdrz8", // Correct path for video
     },
     {
       title: "Swiggy Clone",
@@ -71,16 +71,49 @@ const Portfolio = () => {
         "A Swiggy clone with restaurant filtering and sorting functionalities.",
       tech: ["React", "JavaScript", "HTML5", "CSS3", "REST APIs"],
       githubLink: "https://github.com/Charanreddy2408/swiggy",
-       videoId: "G8d5mDwFHsQ"// Correct path for video
+      videoId: "G8d5mDwFHsQ", // Correct path for video
     },
     {
       title: "Retrofit Gym Website",
       description: "A fully functioning website with SEO optimization.",
       tech: ["WordPress", "HTML5", "CSS3"],
       link: "https://retrofitgym.com",
-      videoUrl: "/api/placeholder/640/360", // Placeholder URL for demo
+      videoId: "bih8rRhxe8Y", // Placeholder URL for demo
     },
   ];
+  const organizations = [
+    {
+      role: "Technical Team Member",
+      organization: "Geeks For Geeks Club",
+      period: "2023 - Present",
+      description: "Contributing as a Technical Team Member in the Geeks For Geeks Club, supporting the club's mission and activities at the college level."
+    },
+    {
+      role: "Core Body Member",
+      organization: "Career Odyssey Club",
+      period: "2024 - Present",
+      description: "Contributing as a Core Team Member in the placements related Club, supporting placement-related sessions and campus visits and activities at the college level."
+    }
+  ];
+  
+  const languages = [
+    {
+      name: "English",
+      level: "Full Professional Proficiency",
+      percentage: 95
+    },
+    {
+      name: "Telugu",
+      level: "Full Professional Proficiency",
+      percentage: 90
+    },
+    {
+      name: "Hindi",
+      level: "Limited Working Proficiency",
+      percentage: 70
+    }
+  ];
+  
 
   const hobbies = [
     {
@@ -109,7 +142,7 @@ const Portfolio = () => {
     {
       title: "Code Wars",
       description: "Algorithmic problem-solving",
-      date: "2024",
+      date: "2023",
     },
     {
       title: "Python Beginner Course",
@@ -119,13 +152,19 @@ const Portfolio = () => {
     {
       title: "MongoDB Certification",
       description: "Database design and querying",
-      date: "2023",
+      date: "2024",
     },
     {
       title: "UiPath Automation Explorer",
       description: "Practical RPA knowledge",
-      date: "2023",
+      date: "2024",
     },
+    {
+      title: "Tableau",
+      description: "Acquired skills in data visualization through Tableau workshops",
+      date: "2024",
+    },
+
   ];
   const careerTimeline = [
     {
@@ -157,7 +196,25 @@ const Portfolio = () => {
       highlights: ["School First", "Perfect Score in Mathematics"],
     },
   ];
-
+  const achievements = [
+    {
+      image: "C:\Users\bhask\OneDrive\Desktop\protfolio\public\image.png", // Add your image URL
+      title: "Achievement 1",
+      description: "This is a description for achievement 1."
+    },
+    {
+      image: "https://via.placeholder.com/600x400", // Add your image URL
+      title: "Achievement 2",
+      description: "This is a description for achievement 2."
+    },
+    {
+      image: "https://via.placeholder.com/600x400", // Add your image URL
+      title: "Achievement 3",
+      description: "This is a description for achievement 3."
+    },
+   
+  ];
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -209,6 +266,8 @@ const Portfolio = () => {
         ),
     },
   };
+  // JavaScript logic for the carousel control
+// JavaScript logic for the carousel control
 
   return (
     <>
@@ -254,316 +313,252 @@ const Portfolio = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900 to-indigo-900 text-white">
         {/* Profile Section */}
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-          {/* Animated background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-            <div className="absolute inset-0">
-              {[...Array(20)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute rounded-full bg-white/10"
-                  style={{
-                    width: Math.random() * 200 + 50 + "px",
-                    height: Math.random() * 200 + 50 + "px",
-                    top: Math.random() * 100 + "%",
-                    left: Math.random() * 100 + "%",
-                    animation: `floatingBubble ${
-                      Math.random() * 10 + 15
-                    }s infinite ease-in-out`,
-                    opacity: Math.random() * 0.3,
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+  {/* Animated background */}
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
+    <div className="absolute inset-0">
+      {[...Array(20)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-white/10"
+          style={{
+            width: Math.random() * 200 + 50 + "px",
+            height: Math.random() * 200 + 50 + "px",
+            top: Math.random() * 100 + "%",
+            left: Math.random() * 100 + "%",
+            animation: `floatingBubble ${Math.random() * 10 + 15}s infinite ease-in-out`,
+            opacity: Math.random() * 0.3,
+          }}
+        />
+      ))}
+    </div>
+  </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto px-4 relative z-10">
-            <div className="text-center md:text-left">
-              {/* Animated name with letter-by-letter reveal */}
-              <h1 className="text-4xl md:text-6xl font-bold text-white overflow-hidden">
-                {"Akepati  Sri Charan Reddy"
-                  .split("  ")
-                  .map((letter, index) => (
-                    <span
-                      key={index}
-                      className="inline-block opacity-0"
-                      style={{
-                        animation: `letterReveal 0.6s ${
-                          index * 0.05
-                        }s forwards`,
-                      }}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-              </h1>
+  <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto px-4 relative z-10">
+    <div className="text-center md:text-left">
+      {/* Animated name with letter-by-letter reveal */}
+      <h1 className="text-4xl md:text-6xl font-bold text-white overflow-hidden">
+        {"Akepati Sri Charan Reddy"
+          .split(" ")
+          .map((letter, index) => (
+            <span
+              key={index}
+              className="inline-block opacity-0"
+              style={{
+                animation: `letterReveal 0.6s ${index * 0.05}s forwards`,
+              }}
+            >
+              {letter}
+            </span>
+          ))}
+      </h1>
 
-              {/* Animated roles */}
-              <div className="h-16 overflow-hidden mt-4">
-                <div
-                  className="transition-transform duration-500 ease-in-out"
-                  style={{
-                    transform: `translateY(-${currentRole * 64}px)`,
-                  }}
-                >
-                  {roles.map((role, index) => (
-                    <p
-                      key={index}
-                      className="h-16 text-xl md:text-3xl text-blue-200"
-                      style={{
-                        animation: "roleSlide 0.5s forwards",
-                      }}
-                    >
-                      {role}
-                    </p>
-                  ))}
-                </div>
-              </div>
+      {/* Animated roles */}
+      <div className="h-16 overflow-hidden mt-4">
+        <div
+          className="transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateY(-${currentRole * 64}px)`,
+          }}
+        >
+          {roles.map((role, index) => (
+            <p
+              key={index}
+              className="h-16 text-xl md:text-3xl text-blue-200"
+              style={{
+                animation: "roleSlide 0.5s forwards",
+              }}
+            >
+              {role}
+            </p>
+          ))}
+        </div>
+      </div>
 
-              {/* Animated description */}
-              <div
-                className={`mt-8 text-lg text-gray-300 transition-opacity duration-1000 ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
-                style={{
-                  animation: "slideUp 1s 1s forwards",
-                  opacity: 0,
-                  transform: "translateY(20px)",
-                }}
-              >
-                <p className="leading-relaxed">
-                  I'm a passionate developer with a deep love for creating
-                  innovative solutions. With expertise in full-stack development
-                  and UI/UX design, I bring ideas to life through clean code and
-                  intuitive interfaces.
-                </p>
-              </div>
-            </div>
-
-            {/* Profile Image Section */}
-            <div className="relative group">
-              <div className="relative w-[400px] h-[400px] mx-auto">
-                {/* Animated frames */}
-                <div className="absolute inset-0 border-4 border-white/20 rotate-45 transform transition-transform duration-500 group-hover:rotate-0" />
-                <div className="absolute inset-0 border-4 border-white/20 -rotate-45 transform transition-transform duration-500 group-hover:rotate-0" />
-
-                {/* Profile image with animations */}
-                <div className="absolute inset-4 overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm">
-                  <img
-                    src={profileImages[currentImage]}
-                    alt="Profile"
-                    className="w-full h-full object-cover transform transition-all duration-500"
-                    style={{
-                      animation: "imagePulse 2s infinite ease-in-out",
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <style jsx>{`
-            @keyframes letterReveal {
-              from {
-                opacity: 0;
-                transform: translateY(50px) rotate(20deg);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0) rotate(0deg);
-              }
-            }
-
-            @keyframes roleSlide {
-              from {
-                opacity: 0;
-                transform: translateX(-20px);
-              }
-              to {
-                opacity: 1;
-                transform: translateX(0);
-              }
-            }
-
-            @keyframes slideUp {
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-
-            @keyframes imagePulse {
-              0% {
-                transform: scale(1);
-              }
-              50% {
-                transform: scale(1.05);
-              }
-              100% {
-                transform: scale(1);
-              }
-            }
-
-            @keyframes floatingBubble {
-              0%,
-              100% {
-                transform: translate(0, 0) rotate(0deg);
-              }
-              33% {
-                transform: translate(50px, -50px) rotate(180deg);
-              }
-              66% {
-                transform: translate(-50px, 50px) rotate(360deg);
-              }
-            }
-          `}</style>
-        </section>
-
-        {/* Projects Section */}
-<section className="py-20" id="projects" data-animate>
-  <div
-    className="bg-gradient-to-b from-gray-900 via-purple-900 to-indigo-900 text-white"
-  ></div>
-  <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
-  <div className="max-w-6xl mx-auto px-4 relative">
-    <div className="overflow-hidden rounded-xl">
+      {/* Animated description */}
       <div
-        className="flex transition-all duration-500 ease-in-out"
+        className={`mt-8 text-lg text-gray-300 transition-opacity duration-1000 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
         style={{
-          transform: `translateX(-${currentProjectIndex * 100}%)`,
+          animation: "slideUp 1s 1s forwards",
+          opacity: 0,
+          transform: "translateY(20px)",
         }}
       >
-        {projects.map((project, idx) => (
-          <div key={idx} className="w-full flex-shrink-0 px-4">
-            <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-xl">
-              <div className="relative aspect-video mb-6 overflow-hidden rounded-lg">
-                <iframe
-                  src={`https://www.youtube.com/embed/${project.videoId}`}
-                  className="w-full h-full"
-                  title={project.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-              <p className="text-gray-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 bg-blue-500/30 rounded-full text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex space-x-4">
-                {project.githubLink && (
-                  <a
-                    href={project.githubLink}
-                    className="text-blue-300 hover:text-blue-100 transition-colors flex items-center gap-2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
-                )}
-                {project.link && (
-                  <a
-                    href={project.link}
-                    className="text-blue-300 hover:text-blue-100 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
+        <p className="leading-relaxed">
+          I'm a passionate developer with a deep love for creating innovative
+          solutions. With expertise in full-stack development and UI/UX design, I bring ideas to life through clean code and intuitive interfaces.
+        </p>
       </div>
     </div>
 
-    <button
-      onClick={navigate.project.prev}
-      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
-      aria-label="Previous project"
-    >
-      <ChevronLeft className="w-6 h-6" />
-    </button>
-    <button
-      onClick={navigate.project.next}
-      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
-      aria-label="Next project"
-    >
-      <ChevronRight className="w-6 h-6" />
-    </button>
+    {/* Profile Image Section */}
+    <div className="relative group mt-8 md:mt-0">
+      <div className="relative w-[300px] md:w-[400px] h-[300px] md:h-[400px] mx-auto">
+        {/* Animated frames */}
+        <div className="absolute inset-0 border-4 border-white/20 rotate-45 transform transition-transform duration-500 group-hover:rotate-0" />
+        <div className="absolute inset-0 border-4 border-white/20 -rotate-45 transform transition-transform duration-500 group-hover:rotate-0" />
+
+        {/* Profile image with animations */}
+        <div className="absolute inset-4 overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm">
+          <img
+            src={`${profileImages[currentImage]}`}
+            alt="Profile"
+            className="w-full h-full object-cover transform transition-all duration-500"
+            style={{
+              animation: "imagePulse 2s infinite ease-in-out",
+            }}
+          />
+        </div>
+      </div>
+    </div>
   </div>
+
+  <style jsx>{`
+    @keyframes letterReveal {
+      from {
+        opacity: 0;
+        transform: translateY(50px) rotate(20deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    @keyframes roleSlide {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes imagePulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes floatingBubble {
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      33% {
+        transform: translate(50px, -50px) rotate(180deg);
+      }
+      66% {
+        transform: translate(-50px, 50px) rotate(360deg);
+      }
+    }
+  `}</style>
 </section>
 
-
-        {/* Hobbies Section */}
-        <section
-          className="py-20 bg-gradient-to-r from-purple-900 to-indigo-900"
-          id="hobbies"
-          data-animate
-        >
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Hobbies & Interests
-          </h2>
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="relative bg-white/10 backdrop-blur-md p-8 rounded-lg shadow-xl">
-              <div className="flex items-center justify-between">
-                <button
-                  onClick={navigate.hobby.prev}
-                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
-                  aria-label="Previous hobby"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-
-                <div className="flex-1 max-w-lg mx-4">
-                  <div className="text-center">
-                    <div className="mb-4">
-                      {React.createElement(hobbies[currentHobbyIndex].icon, {
-                        className: `w-16 h-16 mx-auto ${hobbies[currentHobbyIndex].animation}`,
-                      })}
+        {/* Projects Section */}
+        <section className="py-20" id="projects" data-animate>
+          <div className="bg-gradient-to-b from-gray-900 via-purple-900 to-indigo-900 text-white"></div>
+          <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
+          <div className="max-w-6xl mx-auto px-4 relative">
+            <div className="overflow-hidden rounded-xl">
+              <div
+                className="flex transition-all duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentProjectIndex * 100}%)`,
+                }}
+              >
+                {projects.map((project, idx) => (
+                  <div key={idx} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-xl">
+                      <div className="relative aspect-video mb-6 overflow-hidden rounded-lg">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${project.videoId}`}
+                          className="w-full h-full"
+                          title={project.title}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <h3 className="text-2xl font-bold mb-4">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300 mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 bg-blue-500/30 rounded-full text-sm"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex space-x-4">
+                        {project.githubLink && (
+                          <a
+                            href={project.githubLink}
+                            className="text-blue-300 hover:text-blue-100 transition-colors flex items-center gap-2"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Github className="w-4 h-4" />
+                            GitHub
+                          </a>
+                        )}
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            className="text-blue-300 hover:text-blue-100 transition-colors"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Live Demo
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">
-                      {hobbies[currentHobbyIndex].title}
-                    </h3>
-                    <p className="text-gray-300">
-                      {hobbies[currentHobbyIndex].description}
-                    </p>
                   </div>
-                </div>
-
-                <button
-                  onClick={navigate.hobby.next}
-                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
-                  aria-label="Next hobby"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
-              </div>
-
-              <div className="flex justify-center mt-6 gap-2">
-                {hobbies.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentHobbyIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentHobbyIndex ? "bg-white" : "bg-white/30"
-                    }`}
-                    aria-label={`Go to hobby ${index + 1}`}
-                  />
                 ))}
               </div>
             </div>
+
+            <button
+              onClick={navigate.project.prev}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={navigate.project.next}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors"
+              aria-label="Next project"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </section>
+
+
         <section
           className="py-20 bg-gradient-to-r from-indigo-900 to-purple-900"
           id="career"
@@ -720,6 +715,160 @@ const Portfolio = () => {
               </div>
             </div>
           </section>
+          {/* {organization} */}
+          <section id="organizations" className="py-12 md:py-20 px-4 bg-gradient-to-r from-blue-900 to-purple-900">
+  <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8 md:mb-12">Organizations</h2>
+  <div className="max-w-4xl mx-auto grid gap-6 md:gap-8">
+    {organizations.map((org, idx) => (
+      <div 
+        key={idx}
+        className="bg-white/10 backdrop-blur-md p-4 md:p-6 rounded-lg hover:scale-105 hover:rotate-3 hover:bg-purple-800 hover:shadow-xl transition-all duration-500 group animate-[fadeInUp_0.6s_ease-out_forwards]"
+        style={{ animationDelay: `${idx * 0.3}s` }}
+      >
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
+          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
+            {org.role}
+          </h3>
+          <span className="text-purple-300 font-medium whitespace-nowrap">
+            {org.period}
+          </span>
+        </div>
+        <h4 className="text-lg md:text-xl text-blue-300 mb-3">
+          {org.organization}
+        </h4>
+        <p className="text-gray-300 text-sm md:text-base">
+          {org.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+{/* Achievements Gallery Section */}
+{/* Achievements Gallery Section */}
+
+
+
+
+
+
+ {/* {languages} */}
+      <section id="languages" className="py-12 md:py-20 px-4 bg-gradient-to-r from-purple-900 to-indigo-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8 md:mb-12">Languages</h2>
+        <div className="max-w-3xl mx-auto grid gap-4 md:gap-6">
+          {languages.map((lang, idx) => (
+            <div 
+              key={idx}
+              className="relative overflow-hidden animate-[fadeIn_0.5s_ease-out_forwards]"
+              style={{ animationDelay: `${idx * 0.3}s` }}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg md:text-xl font-medium text-white">{lang.name}</h3>
+                <span className="text-blue-300 text-sm md:text-base">{lang.level}</span>
+              </div>
+              <div className="h-3 md:h-4 bg-white/10 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000"
+                  style={{ width: `${lang.percentage}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+
+
+{/* Add these styles to the existing style tag */}
+<style jsx>{`
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes progressBar {
+    from {
+      width: 0;
+    }
+  }
+`}</style>
+                  {/* Hobbies Section */}
+        <section
+          className="py-20 bg-gradient-to-r from-purple-900 to-indigo-900"
+          id="hobbies"
+          data-animate
+        >
+          <h2 className="text-4xl font-bold text-center mb-12">
+            Hobbies & Interests
+          </h2>
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="relative bg-white/10 backdrop-blur-md p-8 rounded-lg shadow-xl">
+              <div className="flex items-center justify-between">
+                <button
+                  onClick={navigate.hobby.prev}
+                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                  aria-label="Previous hobby"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+
+                <div className="flex-1 max-w-lg mx-4">
+                  <div className="text-center">
+                    <div className="mb-4">
+                      {React.createElement(hobbies[currentHobbyIndex].icon, {
+                        className: `w-16 h-16 mx-auto ${hobbies[currentHobbyIndex].animation}`,
+                      })}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">
+                      {hobbies[currentHobbyIndex].title}
+                    </h3>
+                    <p className="text-gray-300">
+                      {hobbies[currentHobbyIndex].description}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={navigate.hobby.next}
+                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                  aria-label="Next hobby"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+
+              <div className="flex justify-center mt-6 gap-2">
+                {hobbies.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentHobbyIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentHobbyIndex ? "bg-white" : "bg-white/30"
+                    }`}
+                    aria-label={`Go to hobby ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
           {/* {coonect} */}
           <section
             className="py-20 bg-gradient-to-r from-indigo-800 to-purple-900 text-white"
