@@ -16,6 +16,7 @@ const random = (min, max) => Math.random() * (max - min) + min;
 
 const Portfolio = () => {
   // State management
+  const [selectedImage, setSelectedImage] = useState(null);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentHobbyIndex, setCurrentHobbyIndex] = useState(0);
@@ -95,7 +96,7 @@ const Portfolio = () => {
       description: "Contributing as a Core Team Member in the placements related Club, supporting placement-related sessions and campus visits and activities at the college level."
     }
   ];
-  
+
   const languages = [
     {
       name: "English",
@@ -168,52 +169,39 @@ const Portfolio = () => {
   ];
   const careerTimeline = [
     {
-      year: "2020-2024",
+      year: "2022-2026",
       degree: "Bachelor of Technology in Computer Science",
-      institution: "Your University Name",
-      location: "City, State",
+      institution: "Anurag University",
+      location: "Hyderabad,Telangana",
       score: "9.3 CGPA",
       highlights: [
-        "Technical Team Member at GFG Club",
-        "Winner of College Hackathon 2023",
-        "Published paper on Web Technologies",
+
       ],
     },
     {
-      year: "2018-2020",
+      year: "2020-2022",
       degree: "Intermediate Education (MPC)",
-      institution: "Your College Name",
-      location: "City, State",
+      institution: "Narayana group of institutions",
+      location: "Hyderabad,Telangana",
       score: "95%",
-      highlights: ["College Topper", "Mathematics Olympiad Winner"],
+      highlights: [],
     },
     {
-      year: "2018",
+      year: "2020",
       degree: "Secondary School Education",
-      institution: "Your School Name",
-      location: "City, State",
+      institution: "Narayana group of institutions",
+      location: "Hyderabad,Telangana",
       score: "10.0 GPA",
-      highlights: ["School First", "Perfect Score in Mathematics"],
+      highlights: [],
     },
   ];
   const achievements = [
-    {
-      image: "C:\Users\bhask\OneDrive\Desktop\protfolio\public\image.png", // Add your image URL
-      title: "Achievement 1",
-      description: "This is a description for achievement 1."
-    },
-    {
-      image: "https://via.placeholder.com/600x400", // Add your image URL
-      title: "Achievement 2",
-      description: "This is a description for achievement 2."
-    },
-    {
-      image: "https://via.placeholder.com/600x400", // Add your image URL
-      title: "Achievement 3",
-      description: "This is a description for achievement 3."
-    },
-   
+    { id: 1, title: "Participated in Tableau Workshop", image: "image.png" },
+    { id: 2, title: "Project Expo At College Level", image: "tejas.jpg" },
+    { id: 3, title: "Achievement 3", image: "/api/placeholder/1200/800" },
+    { id: 4, title: "Achievement 4", image: "/api/placeholder/1200/800" }
   ];
+
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -745,11 +733,94 @@ const Portfolio = () => {
 </section>
 {/* Achievements Gallery Section */}
 {/* Achievements Gallery Section */}
+<section className="py-20 bg-gradient-to-r from-teal-900 to-blue-900 min-h-screen">
+      <style>{`
+        @keyframes fadeReveal {
+          0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+          50% { opacity: 0.5; transform: translateY(10px) scale(0.97); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
 
+        @keyframes borderFlow {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 100% 50%; }
+        }
 
+        .classic-card {
+          animation: fadeReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
+        .classic-card:hover::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          background: linear-gradient(45deg,rgb(235, 195, 94),rgb(114, 135, 220), #b8860b);
+          background-size: 200% 200%;
+          animation: borderFlow 2s linear infinite;
+          z-index: -1;
+          border-radius: 0.75rem;
+        }
 
+        .scroll-container {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
 
+        .scroll-container::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+
+      <h2 className="text-3xl md:text-4xl font-serif text-center text-white mb-8 md:mb-12 border-b border-white/20 pb-4 mx-auto max-w-xs">
+        Achievements
+      </h2>
+
+      <div className="max-w-7xl mx-auto scroll-container overflow-x-auto">
+        <div className="flex gap-4 md:gap-8 pb-8">
+          {achievements.map((item, index) => (
+            <div
+              key={item.id}
+              className="classic-card relative flex-none w-[280px] md:w-[400px] lg:w-[500px] cursor-pointer bg-black/60"
+              style={{ 
+                animationDelay: `${index * 0.2}s`,
+                borderRadius: '0.75rem'
+              }}
+              onClick={() => setSelectedImage(item)}
+            >
+              <div className="overflow-hidden rounded-xl">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-[200px] md:h-[300px] lg:h-[400px] object-cover transform transition-transform duration-700 hover:scale-105"
+                />
+                <div className="p-4 md:p-6 border-t border-white/10">
+                  <h3 className="text-lg md:text-xl font-serif text-white">{item.title}</h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 md:p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div 
+            className="relative w-full max-h-[90vh]"
+            style={{ animation: 'fadeReveal 0.5s ease-out forwards' }}
+          >
+            <img
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              className="w-full h-full object-contain rounded border border-white/20"
+            />
+          </div>
+        </div>
+      )}
+    </section>
 
  {/* {languages} */}
       <section id="languages" className="py-12 md:py-20 px-4 bg-gradient-to-r from-purple-900 to-indigo-900">
