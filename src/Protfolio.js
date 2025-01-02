@@ -29,7 +29,6 @@ const Portfolio = () => {
   const roles = [
     "Frontend Developer",
     "React Enthusiast",
-    "UI/UX Developer",
     "Web Developer",
     "JavaScript Developer",
   ];
@@ -198,7 +197,7 @@ const Portfolio = () => {
   const achievements = [
     { id: 1, title: "Participated in Tableau Workshop", image: "image.png" },
     { id: 2, title: "Project Expo At College Level", image: "tejas.jpg" },
-    { id: 3, title: "Achievement 3", image: "/api/placeholder/1200/800" },
+    { id: 3, title: "participated for Smart India Hackathon", image: "sih.jpg" },
     { id: 4, title: "Achievement 4", image: "/api/placeholder/1200/800" }
   ];
 
@@ -734,93 +733,102 @@ const Portfolio = () => {
 {/* Achievements Gallery Section */}
 {/* Achievements Gallery Section */}
 <section className="py-20 bg-gradient-to-r from-teal-900 to-blue-900 min-h-screen">
-      <style>{`
-        @keyframes fadeReveal {
-          0% { opacity: 0; transform: translateY(20px) scale(0.95); }
-          50% { opacity: 0.5; transform: translateY(10px) scale(0.97); }
-          100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
+  <style>{`
+    @keyframes fadeReveal {
+      0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+      50% { opacity: 0.5; transform: translateY(10px) scale(0.97); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
 
-        @keyframes borderFlow {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 100% 50%; }
-        }
+    @keyframes borderFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
 
-        .classic-card {
-          animation: fadeReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    @keyframes autoScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
 
-        .classic-card:hover::before {
-          content: '';
-          position: absolute;
-          inset: -2px;
-          background: linear-gradient(45deg,rgb(235, 195, 94),rgb(114, 135, 220), #b8860b);
-          background-size: 200% 200%;
-          animation: borderFlow 2s linear infinite;
-          z-index: -1;
-          border-radius: 0.75rem;
-        }
+    .classic-card {
+      animation: fadeReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .scroll-container {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
+    .classic-card:hover::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(45deg,rgb(235, 195, 94),rgb(114, 135, 220), #b8860b);
+      background-size: 200% 200%;
+      animation: borderFlow 2s linear infinite;
+      z-index: -1;
+      border-radius: 0.75rem;
+    }
 
-        .scroll-container::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+    .scroll-container {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      display: flex;
+      gap: 16px;
+      animation: autoScroll 15s linear infinite;
+    }
 
-      <h2 className="text-3xl md:text-4xl font-serif text-center text-white mb-8 md:mb-12 border-b border-white/20 pb-4 mx-auto max-w-xs">
-        Achievements
-      </h2>
+    .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+  `}</style>
 
-      <div className="max-w-7xl mx-auto scroll-container overflow-x-auto">
-        <div className="flex gap-4 md:gap-8 pb-8">
-          {achievements.map((item, index) => (
-            <div
-              key={item.id}
-              className="classic-card relative flex-none w-[280px] md:w-[400px] lg:w-[500px] cursor-pointer bg-black/60"
-              style={{ 
-                animationDelay: `${index * 0.2}s`,
-                borderRadius: '0.75rem'
-              }}
-              onClick={() => setSelectedImage(item)}
-            >
-              <div className="overflow-hidden rounded-xl">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-[200px] md:h-[300px] lg:h-[400px] object-cover transform transition-transform duration-700 hover:scale-105"
-                />
-                <div className="p-4 md:p-6 border-t border-white/10">
-                  <h3 className="text-lg md:text-xl font-serif text-white">{item.title}</h3>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+  <h2 className="text-3xl md:text-4xl font-serif text-center text-white mb-8 md:mb-12 border-b border-white/20 pb-4 mx-auto max-w-xs">
+    Achievements
+  </h2>
 
-      {selectedImage && (
+  <div className="max-w-10xl mx-auto scroll-container overflow-x">
+    <div className="flex gap-4 md:gap-8 pb-8">
+      {achievements.map((item, index) => (
         <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 md:p-4"
-          onClick={() => setSelectedImage(null)}
+          key={item.id}
+          className="classic-card relative flex-none w-[280px] md:w-[400px] lg:w-[500px] cursor-pointer bg-black/60"
+          style={{ 
+            animationDelay: `${index * 0.2}s`,
+            borderRadius: '0.75rem'
+          }}
+          onClick={() => setSelectedImage(item)}
         >
-          <div 
-            className="relative w-full max-h-[90vh]"
-            style={{ animation: 'fadeReveal 0.5s ease-out forwards' }}
-          >
+          <div className="overflow-hidden rounded-xl">
             <img
-              src={selectedImage.image}
-              alt={selectedImage.title}
-              className="w-full h-full object-contain rounded border border-white/20"
+              src={item.image}
+              alt={item.title}
+              className="w-full h-[200px] md:h-[300px] lg:h-[400px] object-cover transform transition-transform duration-700 hover:scale-105"
             />
+            <div className="p-4 md:p-6 border-t border-white/10">
+              <h3 className="text-lg md:text-xl font-serif text-white">{item.title}</h3>
+            </div>
           </div>
         </div>
-      )}
-    </section>
+      ))}
+    </div>
+  </div>
+
+  {selectedImage && (
+    <div
+      className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 md:p-4"
+      onClick={() => setSelectedImage(null)}
+    >
+      <div 
+        className="relative w-full max-h-[90vh]"
+        style={{ animation: 'fadeReveal 0.5s ease-out forwards' }}
+      >
+        <img
+          src={selectedImage.image}
+          alt={selectedImage.title}
+          className="w-full h-full object-contain rounded border border-white/20"
+        />
+      </div>
+    </div>
+  )}
+</section>
+
 
  {/* {languages} */}
       <section id="languages" className="py-12 md:py-20 px-4 bg-gradient-to-r from-purple-900 to-indigo-900">
