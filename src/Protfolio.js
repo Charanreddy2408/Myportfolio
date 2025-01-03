@@ -783,15 +783,15 @@ const Portfolio = () => {
     Achievements
   </h2>
 
-  <div className="max-w-10xl mx-auto scroll-container overflow-x">
-    <div className="flex gap-4 md:gap-8 pb-8">
+  <div className="max-w-7xl mx-auto px-4 overflow-x-hidden">
+    <div className="scroll-container">
       {achievements.map((item, index) => (
         <div
           key={item.id}
-          className="classic-card relative flex-none w-[280px] md:w-[400px] lg:w-[500px] cursor-pointer bg-black/60"
-          style={{ 
+          className="classic-card relative flex-none w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] cursor-pointer bg-black/60"
+          style={{
             animationDelay: `${index * 0.2}s`,
-            borderRadius: '0.75rem'
+            borderRadius: '0.75rem',
           }}
           onClick={() => setSelectedImage(item)}
         >
@@ -799,10 +799,10 @@ const Portfolio = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-[200px] md:h-[300px] lg:h-[400px] object-cover transform transition-transform duration-700 hover:scale-105"
+              className="w-full h-[150px] sm:h-[180px] md:h-[220px] lg:h-[260px] object-cover transform transition-transform duration-700 hover:scale-105"
             />
             <div className="p-4 md:p-6 border-t border-white/10">
-              <h3 className="text-lg md:text-xl font-serif text-white">{item.title}</h3>
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-serif text-white">{item.title}</h3>
             </div>
           </div>
         </div>
@@ -815,7 +815,7 @@ const Portfolio = () => {
       className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 md:p-4"
       onClick={() => setSelectedImage(null)}
     >
-      <div 
+      <div
         className="relative w-full max-h-[90vh]"
         style={{ animation: 'fadeReveal 0.5s ease-out forwards' }}
       >
@@ -828,6 +828,8 @@ const Portfolio = () => {
     </div>
   )}
 </section>
+
+
 
 
  {/* {languages} */}
